@@ -1,17 +1,29 @@
-Esta aplicação em Python foi desenvolvida para automatizar o monitoramento de ciclos de vida de licenciamentos, eliminando a necessidade de conferência manual semanal em planilhas de controle.
+Sistema de Monitoramento e Alerta de Licenciamento (Python)
+Este projeto automatiza a gestão de prazos de licenciamentos, certificados e contratos, eliminando conferências manuais e mitigando riscos de interrupção de serviços por expiração.
 
-O projeto funciona como um agente automatizado (bot) que, integrado ao Agendador de Tarefas, realiza a leitura proativa de dados, valida prazos conforme parâmetros de conformidade e dispara alertas preventivos via e-mail antes do vencimento dos ativos.
+A aplicação foi desenhada para ser resiliente e flexível, oferecendo duas abordagens técnicas distintas conforme a necessidade da infraestrutura.
 
-Detalhes Técnicos:
-Abordagem Híbrida: O repositório apresenta duas versões para diferentes cenários:
+Estrutura do Projeto
+O repositório está dividido em duas versões principais:
 
-Versão XLWINGS: Ideal para integração direta com a interface do Excel(precisa do excel instalado).
+/versao-openpyxl (Recomendado para Servidores): Funciona em modo headless (sem interface gráfica). Ideal para rodar em servidores Windows Core ou em instâncias onde o Microsoft Excel não está instalado.
 
-Versão OPENPYXL: Focada em processamento de dados em segundo plano .
+/versao-xlwings (Interação com Usuário): Ideal para máquinas de trabalho (workstations) onde o operador precisa que o Excel seja aberto e manipulado visualmente em tempo real.
 
-Eficiência Operacional: Redução de falhas humanas e garantia de continuidade de serviços críticos através de alertas escalonados.
+Principais Diferenciais
+Automação via Task Scheduler: Ambas as versões são compatíveis com o Agendador de Tarefas do Windows.
 
-Este é um projeto prático focado em resolver dores reais de suporte e infraestrutura. Detalhes de funcionamento estão descritos dentro das pastas de cada versão.
+Régua de Alertas Críticos: Sistema de notificação por e-mail nos marcos de 40, 30, 20, 15, 10, 5, 3 e 1 dia(s) antes do vencimento.
 
-Agradeço a visita ao meu perfil!
+Auditoria via Logs: Geração de arquivos .txt para histórico de execuções.
 
+Portabilidade: Instruções inclusas para converter os scripts em executáveis .exe via PyInstaller.
+
+Recursos Utilizadas:
+Python 3.x
+
+Openpyxl / Xlwings (Manipulação de dados)
+
+SMTPLib (Mensageria e Alertas)
+
+PyInstaller (Distribuição/Binários)
