@@ -1,18 +1,19 @@
-Este é um projeto meu em python,
+Esta versão foi projetada para executar em segundo plano, utilizando a biblioteca Openpyxl para leitura direta do arquivo .xlsx sem a necessidade de instanciar a interface gráfica do Excel. É a solução ideal para servidores onde o recurso de GUI não é necessário ou disponível.
 
-É um projeto simples no qual tive a ideia para que fosse realizado um monitoramento diário dos nossos licenciamentos da empresa dos quais necessitam renovação.
+Funcionamento:
+Ingestão de Dados: O script realiza a leitura dos dados das colunas e linhas pré-definidas na planilha de licenciamento.
 
-Funciona da seguinte forma:
+Processamento em Memória: Os dados são mapeados em variáveis para análise lógica de prazos.
 
-Há uma planilha que já utilizavamos para registrar as licenças que haviamos e suas datas de renovação, nessa mesma havia tambem uma contagem de dias.
+Saída em Terminal: Exibição imediata dos resultados com temporizador de persistência (5 segundos) para conferência rápida.
 
-Através da biblioteca OPENPYXL, o app realiza uma consulta nas colunas e linhas que desejei que fossem lidas e coloca esses dados em uma varialvel dentro do Python.
+LOG: Geração automática de arquivo .txt contendo o status atualizado, permitindo auditoria posterior do monitoramento.
 
-Com esses dados lançados em variáveis dentro do codigo, realizei os seguintes passos.
+Trigger de Alerta: Verificação condicional baseada em uma régua de alertas críticos (40, 30, 20, 15, 10, 5, 3 e 1 dia). Caso o critério seja atendido, o módulo de mensageria dispara o e-mail preventivo.
 
-1. Verifica os dados da planilha que for destinada a ele
-2. Lê seus dados com base nos campos do excel que foram definidos nos codigos
-3. Imprime no terminal os resultados com a quantidades de dia que cada está para vencer(e segura esse terminal aberto por 5 segundos)
-4. Cria um arquivo de LOG em TXT com os mesmos dados que o mesmo imprimiu no terminal, gerando assim um log atual de quantos dias faltam para cada licença vencer
-5. Faz uma verificação de cada uma das variáveis, nas quais se houver alguma licença que está faltando 40,30,20,15,10,5,3,1 dia(as) para expirar, ele dispara um e-mail informando que a mesma está com esses valores exatos para vencimento.
+Requisitos:
+Python 3.x
 
+Bibliotecas: openpyxl
+
+Acesso ao servidor SMTP para envio de alertas.
