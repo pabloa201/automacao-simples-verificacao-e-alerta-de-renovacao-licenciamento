@@ -1,0 +1,18 @@
+
+Licenciamento/Assinaturas: DiasParaVencer
+Faltam 30 dias para vencer a licença individual do Teams
+Faltam 32 dias para vencer as 16 licenças do Teams 
+Faltam 32 dias para vencer as 18 licenças do Teams 
+Faltam 32 dias para vencer a licença do BackupExec 
+Faltam 32 dias para vencer a licença do Team Viewer
+Faltam 32 dias para vencer a licença do Oracle
+
+DiasParaVencer: DiasParaVencer
+Faltam -403 dias para vencer o certificado A1-empresa
+Faltam -388 dias para vencer o Certificado do Remote App TS4 e TS2
+
+DiasParaVencer: DiasParaVencer no RegistroBR
+Faltam -514 dias para vencer o dominio domain1.com.br
+Faltam -621 dias para vencer o dominio Domain2.com.br
+Faltam -594 dias para vencer o dominio Domain3.com.br
+Faltam 297 dias para vencer o dominio Domain4.com.br
