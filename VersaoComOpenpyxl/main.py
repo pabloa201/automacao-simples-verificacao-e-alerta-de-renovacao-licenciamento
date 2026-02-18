@@ -28,10 +28,10 @@ for i in range(1, row_count):
         CertificadoRemoteApp = int(sheet.cell(row=10, column=3).value)
         #Dominios
         nomeColuna3 = sheet.cell(row=1, column=3).value
-        Domainusas = int(sheet.cell(row=11, column=3).value)
-        Domainusos = int(sheet.cell(row=12, column=3).value)
-        Domainused = int(sheet.cell(row=13, column=3).value)
-        Domainusus = int(sheet.cell(row=14, column=3).value)
+        Domain1 = int(sheet.cell(row=11, column=3).value)
+        Domain2 = int(sheet.cell(row=12, column=3).value)
+        Domain3 = int(sheet.cell(row=13, column=3).value)
+        Domain4 = int(sheet.cell(row=14, column=3).value)
 
 file = open('LogDiarioStatusLicenciamentos_Certificados_Dominios.txt', 'w')
 file.write('\nLicenciamento/Assinaturas: ' + nomeColuna + '\n')
@@ -43,14 +43,14 @@ file.write('Faltam ' + str(licencaTeamViewer) + ' dias para vencer a licença do
 file.write('Faltam ' + str(licencaAdobePRO) + ' dias para vencer a licença do Oracle')
 file.write('\n')
 file.write('\nCertificados: ' + nomeColuna2 + '\n')
-file.write('Faltam ' + str(CertificadoA1) + ' dias para vencer o certificado A1-Linck Maquinas\n')
+file.write('Faltam ' + str(CertificadoA1) + ' dias para vencer o certificado A1-empresa\n')
 file.write('Faltam ' + str(CertificadoRemoteApp) + ' dias para vencer o Certificado do Remote App TS4 e TS2\n')
 file.write('\n')
 file.write('Dominios: ' + nomeColuna3 + ' no RegistroBR\n')
-file.write('Faltam ' + str(Domainusas) + ' dias para vencer o dominio usas.com.br\n')
-file.write('Faltam ' + str(Domainusos) + ' dias para vencer o dominio usos.com.br\n')
-file.write('Faltam ' + str(Domainused) + ' dias para vencer o dominio used.com.br\n')
-file.write('Faltam ' + str(Domainusus) + ' dias para vencer o dominio usus.com.br\n')
+file.write('Faltam ' + str(Domain1) + ' dias para vencer o dominio Domain1.com.br\n')
+file.write('Faltam ' + str(Domain2) + ' dias para vencer o dominio Domain2.com.br\n')
+file.write('Faltam ' + str(Domain3) + ' dias para vencer o dominio Domain3.com.br\n')
+file.write('Faltam ' + str(Domain4) + ' dias para vencer o dominio Domain4.com.br\n')
 file.close()
 
 # Impressões de mensagem dos resultados
@@ -63,14 +63,14 @@ print('Faltam ' + str(licencaTeamViewer) + ' dias para vencer a licença do Team
 print('Faltam ' + str(licencaAdobePRO) + ' dias para vencer a licença do Adobe PRO - Diretor')
 print()
 print('Certificados: ' + nomeColuna2)
-print('Faltam ' + str(CertificadoA1) + ' dias para vencer o certificado A1-Linck Maquinas')
+print('Faltam ' + str(CertificadoA1) + ' dias para vencer o certificado A1-empresa')
 print('Faltam ' + str(CertificadoRemoteApp) + ' dias para vencer o Certificado do Remote App TS4 e TS2')
 print()
 print('Dominios: ' + nomeColuna3 + ' no RegistroBR')
-print('Faltam ' + str(Domainusas) + ' dias para vencer o dominio usas.com.br')
-print('Faltam ' + str(Domainusos) + ' dias para vencer o dominio usos.com.br')
-print('Faltam ' + str(Domainused) + ' dias para vencer o dominio used.com.br')
-print('Faltam ' + str(Domainusus) + ' dias para vencer o dominio usus.com.br')
+print('Faltam ' + str(Domain1) + ' dias para vencer o dominio Domain1.com.br')
+print('Faltam ' + str(Domain2) + ' dias para vencer o dominio Domain2.com.br')
+print('Faltam ' + str(Domain3) + ' dias para vencer o dominio Domain3.com.br')
+print('Faltam ' + str(Domain4) + ' dias para vencer o dominio Domain4.com.br')
 time.sleep(5)
 # AutenticaçãoEmail
 email_from = '***************@*************.com.br'
@@ -178,7 +178,7 @@ if (CertificadoA1 == 40 or CertificadoA1 == 30 or CertificadoA1 == 20 or
     msg['Subject'] = 'ALERTA: Renovação Se Aproximando(Licença/Certificado/Dominio)'
     msg['From'] = email_from
     msg['To'] = email_to
-    msg.set_content('Em ' + str(CertificadoA1) + ' dias vence o certificado A1-Linck Maquinas')
+    msg.set_content('Em ' + str(CertificadoA1) + ' dias vence o certificado A1-empresa')
     server.send_message(msg)
     server.quit()
     print('Email Enviado')
@@ -200,8 +200,8 @@ if (CertificadoRemoteApp == 40 or CertificadoRemoteApp == 30 or CertificadoRemot
     time.sleep(1)
 
 # Dominios no Registro BR
-if (Domainusas == 40 or Domainusas == 30 or Domainusas == 20 or
-        Domainusas == 15 or Domainusas == 5 or Domainusas == 1):
+if (Domain1 == 40 or Domain1 == 30 or Domain1 == 20 or
+        Domain1 == 15 or Domain1 == 5 or Domain1 == 1):
     server = smtplib.SMTP(smtp, 587)
     server.starttls()
     server.login(email_from, senha)
@@ -210,14 +210,14 @@ if (Domainusas == 40 or Domainusas == 30 or Domainusas == 20 or
     msg['From'] = email_from
     msg['To'] = email_to
     msg.set_content(
-        'Em ' + str(Domainusas) + ' dias vence o registro do dominio usas.com.br no RegistroBR')
+        'Em ' + str(Domain1) + ' dias vence o registro do dominio Domain1.com.br no RegistroBR')
     server.send_message(msg)
     server.quit()
     print('Email Enviado')
     time.sleep(1)
 
-if (Domainusos == 40 or Domainusos == 30 or Domainusos == 20 or
-        Domainusos == 15 or Domainusos == 5 or Domainusos == 1):
+if (Domain2 == 40 or Domain2 == 30 or Domain2 == 20 or
+        Domain2 == 15 or Domain2 == 5 or Domain2 == 1):
     server = smtplib.SMTP(smtp, 587)
     server.starttls()
     server.login(email_from, senha)
@@ -226,14 +226,14 @@ if (Domainusos == 40 or Domainusos == 30 or Domainusos == 20 or
     msg['From'] = email_from
     msg['To'] = email_to
     msg.set_content('Em ' + str(
-        Domainusos) + ' dias vence registro do dominio usos.com.br no RegistroBR')
+        Domain2) + ' dias vence registro do dominio Domain2.com.br no RegistroBR')
     server.send_message(msg)
     server.quit()
     print('Email Enviado')
     time.sleep(1)
 
-if (Domainused == 40 or Domainused == 30 or Domainused == 20 or
-        Domainused == 15 or Domainused == 5 or Domainused == 1):
+if (Domain3 == 40 or Domain3 == 30 or Domain3 == 20 or
+        Domain3 == 15 or Domain3 == 5 or Domain3 == 1):
     server = smtplib.SMTP(smtp, 587)
     server.starttls()
     server.login(email_from, senha)
@@ -242,14 +242,14 @@ if (Domainused == 40 or Domainused == 30 or Domainused == 20 or
     msg['From'] = email_from
     msg['To'] = email_to
     msg.set_content(
-        'Em ' + str(Domainused) + ' dias vence o registro do dominio used.com.br no RegistroBR')
+        'Em ' + str(Domain3) + ' dias vence o registro do dominio Domain3.com.br no RegistroBR')
     server.send_message(msg)
     server.quit()
     print('Email Enviado')
     time.sleep(1)
 
-if (Domainusus == 40 or Domainusus == 30 or Domainusus == 20 or
-        Domainusus == 15 or Domainusus == 5 or Domainusus == 1):
+if (Domain4 == 40 or Domain4 == 30 or Domain4 == 20 or
+        Domain4 == 15 or Domain4 == 5 or Domain4 == 1):
     server = smtplib.SMTP(smtp, 587)
     server.starttls()
     server.login(email_from, senha)
@@ -258,7 +258,7 @@ if (Domainusus == 40 or Domainusus == 30 or Domainusus == 20 or
     msg['From'] = email_from
     msg['To'] = email_to
     msg.set_content(
-        'Em ' + str(Domainusus) + ' dias vence o registro do dominio USUS.COM.BR no RegistroBR')
+        'Em ' + str(Domain4) + ' dias vence o registro do dominio Domain4.COM.BR no RegistroBR')
     server.send_message(msg)
     server.quit()
     print('Email Enviado')
