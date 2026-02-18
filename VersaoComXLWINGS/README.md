@@ -1,21 +1,34 @@
-Este é um projeto meu em python,
+Esta versão foi desenvolvida utilizando a biblioteca Xlwings, ideal para cenários onde há necessidade de interação direta com a interface do Microsoft Excel. Diferente da versão Openpyxl, este método permite que o script manipule a planilha em tempo real, aproveitando recursos nativos do aplicativo instalado.
 
-É um projeto simples no qual tive a ideia para que fosse realizado um monitoramento diário dos nossos licenciamentos da empresa dos quais necessitam renovação.
+ATENÇÃO: É necessário ter o Microsoft Excel instalado na máquina para o funcionamento desta versão.
 
-Funciona da seguinte forma:
+Funcionamento:
+Observação de Execução: A aplicação é projetada para rodar de forma automática via Agendador de Tarefas do Windows.
 
-Há uma planilha que já utilizavamos para registrar as licenças que haviamos e suas datas de renovação, nessa mesma havia tambem uma contagem de dias.
+Integração com Office: O script realiza a abertura do Excel e da planilha de licenciamento de forma automatizada.
 
-Através da biblioteca XLWINGS, o app realiza uma consulta nas colunas e linhas que desejei que fossem lidas e coloca esses dados em uma varialvel dentro do Python.
+Coleta de Dados: Realiza a leitura das colunas e linhas específicas, mapeando as informações em variáveis Python.
 
-ATENÇÃO: É NECESSÁRIO TER O EXCEL INSTALADO PARA USAR ESSE METODO!
+Persistência de Dados: Salva automaticamente o arquivo após a conferência para garantir a integridade dos dados.
 
-Com esses dados lançados em variáveis dentro do codigo, realizei os seguintes passos.
+Saída em Terminal: Exibe os resultados e o prazo de vencimento com um temporizador de 5 segundos para validação visual rápida.
 
-1. Abre a planilha
-2. Lê seus dados
-3. Salva a mesma
-4. Imprime no terminal os resultados com a quantidades de dia que cada está para vencer(e segura esse terminal aberto por 5 segundos)
-5. Cria um arquivo de LOG em TXT com os mesmos dados que o mesmo imprimiu no terminal, gerando assim um log atual de quantos dias faltam para cada licença vencer
-6. Faz uma verificação de cada uma das variáveis, nas quais se houver alguma licença que está faltando 40,30,20,15,10,5,3,1 dia(as) para expirar, ele dispara um e-mail informando que a mesma está com esses valores exatos para vencimento.
+Geração de LOG: Cria um arquivo .txt com os dados processados para fins de auditoria e histórico de monitoramento.
 
+Trigger de Alerta: Realiza a verificação da régua de prazos (40, 30, 20, 15, 10, 5, 3 e 1 dia). Se identificado o critério, dispara um e-mail preventivo aos responsáveis.
+
+Requisitos e Preparação:
+Ambiente: Python 3.x e Microsoft Excel instalado.
+
+Bibliotecas: xlwings (Instale com: pip install xlwings).
+
+SMTP: Configuração de servidor de e-mail para alertas.
+
+Transformando em Executável (.exe):
+Para facilitar a implementação em servidores, utilize a biblioteca PyInstaller:
+
+Instale: pip install pyinstaller
+
+Gere o executável: pyinstaller --onefile main.py
+
+O arquivo final estará disponível na pasta dist/ do seu projeto e pode ser renomeado conforme a necessidade.
