@@ -12,8 +12,15 @@ LOG: Geração automática de arquivo .txt contendo o status atualizado, permiti
 Trigger de Alerta: Verificação condicional baseada em uma régua de alertas críticos (40, 30, 20, 15, 10, 5, 3 e 1 dia). Caso o critério seja atendido, o módulo de mensageria dispara o e-mail preventivo.
 
 Requisitos:
+
 Python 3.x
 
-Bibliotecas: openpyxl
+Bibliotecas: openpyxl ( instalar com o comando "pip install openpyxl")
 
 Acesso ao servidor SMTP para envio de alertas.
+
+Após configurar seu projeto todo com as leituras que deseja no excel, transforme a aplicação em executavel com a biblioteca PyInstaller ( "instale com pip install pyinstaller")
+
+e com o seguinte comando você transforma o "main.py" em executavel: pyinstaller --onefile main.py
+
+seu executavel estará na pasta "Dist" do seu projeto(se quiser renomear o executavel, pode realizar sem problemas)
